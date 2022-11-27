@@ -20,16 +20,6 @@ function TinderCards() {
         .catch(reason => console.log(reason))
   }, []);
 
-    // const swipe = async (dir="right") => {
-    //     // await childRefs[currentIndex].current.swipe(dir)
-    //     console.log("yes " + dir)
-    // }
-    //
-    // const goBack = async () => {
-    //     // await childRefs[newIndex].current.restoreCard()
-    //     console.log("back")
-    // }
-
     const swiped = (direction, id) => {
       if (direction === "right") {
           fetch(url + `/users/${id}/like/`, {method: "PUT", headers: getHeaders()})
@@ -43,7 +33,7 @@ function TinderCards() {
   return (
     <div>
       <div className="tinderCards__cardContainer">
-        {people.map((person, index) => (
+        {people.reverse().map((person) => (
           <TinderCard
             className="swipe"
             key={person.id}
@@ -63,7 +53,6 @@ function TinderCards() {
           </TinderCard>
         ))}
       </div>
-      {/*<SwipeButtons right={swipe} left={swipe} middle={goBack}/>*/}
     </div>
   );
 }

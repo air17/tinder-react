@@ -11,7 +11,7 @@ const Matches = () => {
         fetch(url + "/users/matches/", {headers: getHeaders()})
             .then(resp => {
                 if (resp.ok){
-                    resp.json().then(people => setPeople(people))
+                    resp.json().then(peopleData => setPeople(peopleData))
                 } else {
                     resp.text().then(reason => console.log(reason))
                 }

@@ -3,7 +3,7 @@ import {Button, TextField} from "@material-ui/core";
 import {Link} from "react-router-dom";
 import {url} from "./App";
 
-function Register (callback, deps) {
+function Register () {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [locationData, setLocation] = useState(null);
@@ -33,11 +33,11 @@ function Register (callback, deps) {
 
     const registration = () => {
         const profileData = {
-            "username": username,
-            "password": password,
-            "full_name": fullName,
-            "avatar": avatarLink,
-            "contact": contact
+            username,
+            password,
+            full_name: fullName,
+            avatar: avatarLink,
+            contact,
         }
         fetch(url + "/register/",
             {

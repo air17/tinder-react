@@ -15,10 +15,7 @@ function Login () {
     }, [])
 
     const login = () => {
-        const loginData = {
-            "username": username,
-            "password": password,
-        }
+        const loginData = {username, password}
         fetch(url + "/login/",
           {
               method: "POST",
